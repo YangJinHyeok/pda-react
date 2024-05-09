@@ -6,13 +6,13 @@ export default function BlinkCompnent({text}) {
     //const X = useState(초기값)
     // X[0] : State 그 자체, X[1] : State를 변경할 수 있는 함수
     
-    // useEffect(()=>{
-    //     const timeoutId = setInterval(()=>{
-    //         setShowText(showText=>!showText);
-    //     }, 1000)
+    useEffect(()=>{
+        const timeoutId = setInterval(()=>{
+            setShowText(showText=>!showText);
+        }, 1000)
         
-    //     return () => {clearInterval(timeoutId)}
-    // }, [])
+        return () => {clearInterval(timeoutId)}
+    }, [])
 
     useEffect(()=>{
         const intervalId = setInterval(()=>{
@@ -20,7 +20,7 @@ export default function BlinkCompnent({text}) {
             setShowText(!showText);
         }, 3000);
         return ()=>{clearInterval(intervalId);}
-    }, [showText]);
+    }, []);
 
     return (
         <div>
