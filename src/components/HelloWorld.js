@@ -1,8 +1,9 @@
 import React from "react";
+import Style from './HelloWorld.module.css'
 
 export default function HelloWorld(){
     return(
-        <div>
+        <div className={Style.HelloWorld}>
             <h1>Hello, World!</h1>
             <p>This is My first React Application</p>
         </div>
