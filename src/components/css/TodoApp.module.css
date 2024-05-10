@@ -1,10 +1,23 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
+@font-face {
+    font-family: 'TTLaundryGothicB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicR.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: 'TTLaundryGothicB', 'NanumSquare';
+    font-size: 20px;
+}
+
 .text_input{
     position: relative;
     left: 30px;
     width: 500px;
     height: 40px;
     border-radius: 50px;
-    font-size: 15px;
     text-align: center;
 }
 
@@ -14,7 +27,6 @@
     width: 500px;
     height: 40px;
     border-radius: 50px;
-    font-size: 15px;
     text-align: center;
 }
 
@@ -49,12 +61,18 @@ body {
 }
 
 .list{
-    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 10px;
-    text-align: center;
     border-radius: 10px;
+    width: 530px;
     height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
 
 .search_list{
     font-size: 20px;
@@ -62,4 +80,13 @@ body {
     text-align: center;
     border-radius: 10px;
     height: 40px;
+}
+.modify_button {
+    position: absolute;
+    right: 730px;
+}
+
+.delete_button {
+    position: absolute;
+    right: 700px;
 }
