@@ -14,14 +14,23 @@
 //     )
 // }
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 export default function CountComponent() {
     const [count, setCount] = useState(0);
+    const [value1, setValue1] = useState(true);
 
-    const addCount = () => {
+    const ChangeValue = ()=>{
+        setValue1((v)=>!v);
+    }
+
+    // const addCount = () => {
+    //     setCount(count + 1);
+    // };
+
+    const addCount = useCallback(() => {
         setCount(count + 1);
-    };
+    }, []);
 
     useEffect(() => {
         console.log("데이터 받아오기! (이 함수는 한번만 실행됩니다.)");
@@ -39,6 +48,12 @@ export default function CountComponent() {
 
     return (
         <div>
+            <div>
+                <div>{value1}</div>
+                <button onClick={ChangeValue}>State 변경</button>
+            </div>
+
+
             <div>{count}</div>
             <button onClick={addCount}>1 증가</button>
         </div>

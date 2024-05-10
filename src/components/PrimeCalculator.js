@@ -19,11 +19,21 @@ function calculatePrimes(limit) {
 }
 
 export default function PrimeCalculator(props) {
+    const [count, setCount] = useState(0);
     const [limit, setLimit] = useState(10);
-    const primes = calculatePrimes(limit);
 
+    // const primes = calculatePrimes(limit);
+
+    const primes = useMemo(() => calculatePrimes(limit), [limit]);
+
+    const addCount = () => {
+        setCount(count + 1);
+        console.log("hi");
+    };
     return (
         <div>
+            {count}
+            <button onClick={addCount}>카운트 증가</button>
             <input
                 type="number"
                 value={limit}
