@@ -1,6 +1,5 @@
 // import React, { useState } from 'react'
 
-
 // export default function CountComponent() {
 //     const [count, setCount] = useState(0)
 //     const addCount = () => {
@@ -15,7 +14,7 @@
 //     )
 // }
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 export default function CountComponent() {
     const [count, setCount] = useState(0);
@@ -25,9 +24,11 @@ export default function CountComponent() {
     };
 
     useEffect(() => {
-            console.log("데이터 받아오기! (이 함수는 한번만 실행됩니다.)");
+        console.log("데이터 받아오기! (이 함수는 한번만 실행됩니다.)");
         return () => {
-            console.log("메모리를 잡아먹으면 리소스 해제 하는 함수를 return 해 주어야 합니다.");
+            console.log(
+                "메모리를 잡아먹으면 리소스 해제 하는 함수를 return 해 주어야 합니다."
+            );
         };
     }, []);
     // useeffect의 return값은 랜더링할때와 useeffect가 종료될때 실행되는 함수
@@ -38,8 +39,8 @@ export default function CountComponent() {
 
     return (
         <div>
-        <div>{count}</div>
-        <button onClick={addCount}>1 증가</button>
+            <div>{count}</div>
+            <button onClick={addCount}>1 증가</button>
         </div>
     );
-    }
+}

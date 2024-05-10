@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 // export default function CaptionImage(props) {
 //     return (
@@ -9,11 +9,11 @@ import React from 'react'
 //         )
 //     }
 
-export default function CaptionImage({imgUrl, caption}) {
+export default function CaptionImage({ imgUrl, caption }) {
     return (
-        <div style={{textAlign:"center", fontSize:"50px"}}>
+        <div style={{ textAlign: "center", fontSize: "50px" }}>
             <img src={imgUrl} alt={caption} />
             <p>{caption}</p>
         </div>
-        )
-    }
+    );
+}
