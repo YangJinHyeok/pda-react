@@ -4,6 +4,7 @@ import Input from "./Input";
 import List from "./List";
 import Search from "./Search";
 import Style from "../css/TodoApp.module.css";
+import { v4 as uuidv4 } from 'uuid'
 
 export default function TodoApp() {
   const colors = [
@@ -21,16 +22,16 @@ export default function TodoApp() {
   const [searchText, setSearchText] = useState("");
   const [filteredTextList, setFilteredTextList] = useState([]);
 
-//   useEffect(() => {
-//     const storedTextList = JSON.parse(localStorage.getItem("text_list"));
-//     if (storedTextList) {
-//       setText_list(storedTextList);
-//     }
-//   }, []);
+  useEffect(() => {
+    const storedTextList = JSON.parse(localStorage.getItem("text_list"));
+    if (storedTextList) {
+      setText_list(storedTextList);
+    }
+  }, []);
 
-//   useEffect(() => {
-//     localStorage.setItem("text_list", JSON.stringify(text_list));
-//   }, [text_list]);
+  useEffect(() => {
+    localStorage.setItem("text_list", JSON.stringify(text_list));
+  }, [text_list]);
 
   const handleSearchTextChange = (e) => {
     const searchText = e.target.value;
@@ -49,13 +50,19 @@ export default function TodoApp() {
     setSelectedColor(color);
   };
 
+  const handleDeleteItem = (key) => {
+    const newList = text_list.filter((item) => item.key !== key);
+    setText_list(newList);
+  };
+  
+
+  
   const handleInputButtonClick = () => {
     if(text === ""){
         alert("내용을 입력해주세요");
     }
     else{
-        const newItem = { text, color: selectedColor };
-    
+        const newItem = {key: uuidv4(), text: text, color: selectedColor };
         setText_list([...text_list, newItem]);
         setText("");
         setSelectedColor("#FFFFFF");
@@ -92,7 +99,8 @@ export default function TodoApp() {
               <List key={index} text={item.text} color={item.color} />
             ))
           : text_list.map((item, index) => (
-              <List key={index} text={item.text} color={item.color} />
+              <List key={item.key} text={item.text} color={item.color} onDelete={() => handleDeleteItem(item.key)}/>
+              // onDelete={handleDeleteItem}으로하고
             ))}
       </div>
     </div>

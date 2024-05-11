@@ -8,10 +8,11 @@
 }
 
 body {
+    display: flex;
+    justify-content: center;
     font-family: 'TTLaundryGothicB', 'NanumSquare';
     font-size: 20px;
 }
-
 .text_input{
     position: relative;
     left: 30px;
@@ -54,11 +55,7 @@ body {
     background-color: #A2E1DB;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .list{
     display: flex;
@@ -66,13 +63,24 @@ body {
     justify-content: center;
     margin: 10px;
     border-radius: 10px;
-    width: 530px;
-    height: 40px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    width: 550px;
+    height: 7vh;
+    overflow: hidden; 
+}
+.list p {
+    flex-grow: 3;
+    text-align: center;
 }
 
+.list img {
+    display: none;
+  }
+  
+  
+.list:hover img {
+    display: flex;
+    cursor: pointer;
+}
 
 .search_list{
     font-size: 20px;
@@ -82,11 +90,9 @@ body {
     height: 40px;
 }
 .modify_button {
-    position: absolute;
-    right: 730px;
+    display: flex;
 }
 
 .delete_button {
-    position: absolute;
-    right: 700px;
+    padding-left: 10px;
 }
