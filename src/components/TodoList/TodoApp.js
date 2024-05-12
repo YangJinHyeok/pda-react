@@ -50,19 +50,27 @@ export default function TodoApp() {
     setSelectedColor(color);
   };
 
-  const handleDeleteItem = (key) => {
-    const newList = text_list.filter((item) => item.key !== key);
+  const handleDeleteItem = (id) => {
+    const newList = text_list.filter((item) => item.id !== id);
     setText_list(newList);
   };
-  
 
-  
+  const handleUpdateItem = (id, newText) => {
+    const updatedList = text_list.map((item) => {
+      if (item.id === id) {
+        return { ...item, text: newText };
+      }
+      return item;
+    });
+    setText_list(updatedList);
+  };
+
   const handleInputButtonClick = () => {
     if(text === ""){
         alert("내용을 입력해주세요");
     }
     else{
-        const newItem = {key: uuidv4(), text: text, color: selectedColor };
+        const newItem = {id: uuidv4(), text: text, color: selectedColor };
         setText_list([...text_list, newItem]);
         setText("");
         setSelectedColor("#FFFFFF");
@@ -96,11 +104,24 @@ export default function TodoApp() {
       <div className={Style.all_list}>
         {searchText !== ""
           ? filteredTextList.map((item, index) => (
-              <List key={index} text={item.text} color={item.color} />
+              <List
+                key={item.id}
+                id={item.id}
+                text={item.text}
+                color={item.color}
+                onDelete={handleDeleteItem}
+                onUpdate={handleUpdateItem}
+              />
             ))
           : text_list.map((item, index) => (
-              <List key={item.key} text={item.text} color={item.color} onDelete={() => handleDeleteItem(item.key)}/>
-              // onDelete={handleDeleteItem}으로하고
+              <List
+                key={item.id}
+                id={item.id}
+                text={item.text}
+                color={item.color}
+                onDelete={handleDeleteItem}
+                onUpdate={handleUpdateItem}
+              />
             ))}
       </div>
     </div>

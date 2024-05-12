@@ -56,7 +56,6 @@ body {
 }
 
 
-
 .list{
     display: flex;
     align-items: center;
@@ -64,23 +63,27 @@ body {
     margin: 10px;
     border-radius: 10px;
     width: 550px;
-    height: 7vh;
+    height: 6vh;
     overflow: hidden; 
-}
-.list p {
-    flex-grow: 3;
     text-align: center;
 }
-
-.list img {
-    display: none;
-  }
-  
-  
-.list:hover img {
-    display: flex;
-    cursor: pointer;
+.list p,
+.list input{
+    flex-grow: 3;
 }
+
+.list .modify_button,
+.list .delete_button {
+      display: none;
+ }
+  
+  
+.list:hover .modify_button,
+.list:hover .delete_button {
+      display: flex;
+      cursor: pointer;
+ }
+  
 
 .search_list{
     font-size: 20px;
@@ -89,8 +92,39 @@ body {
     border-radius: 10px;
     height: 40px;
 }
-.modify_button {
+
+.modernMode {
     display: flex;
+    align-items: center;
+    flex-grow: 3;    
+}
+.editMode{
+    display: flex;
+    align-items: center;
+    flex-grow: 3;
+    padding-left: 100px;
+}
+
+.editInput{
+    display: flex;
+    align-items: center;
+    flex-grow: 3;
+    border-radius: 50px;
+    width: 300px;
+    height: 30px;
+}
+
+
+.confirm_button{
+    padding-left: 50px;
+    display: flex;
+    cursor: pointer;
+}
+
+.cancel_button{
+    display: flex;
+    cursor: pointer;
+    padding-left: 10px;
 }
 
 .delete_button {
