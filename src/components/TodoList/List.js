@@ -6,7 +6,6 @@ const List = ({ id, text, color, onDelete, onUpdate, onColor}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(text);
   const [showColorPicker, setShowColorPicker] = useState(false);
-  const [selectedColor, setSelectedColor] = useState('#ffffff');
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -34,10 +33,6 @@ const List = ({ id, text, color, onDelete, onUpdate, onColor}) => {
 
   const toggleColorPicker = () => {
     setShowColorPicker(prevState => !prevState);
-  };
-
-  const handleColorChange = (color) => {
-    setSelectedColor(color);
   };
 
   return (
@@ -71,7 +66,7 @@ const List = ({ id, text, color, onDelete, onUpdate, onColor}) => {
           <img
             src={`${process.env.PUBLIC_URL}/img/color.png`}
             onClick={toggleColorPicker}
-            className={Style.delete_button}
+            className={Style.colorpicker_button}
             alt="color"
           />
           <img

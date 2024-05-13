@@ -77,16 +77,15 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.list .colorpicker_button,
 .list .edit_button,
 .list .delete_button {
   display: none;
 }
-
+.list:hover .colorpicker_button,
 .list:hover .edit_button,
 .list:hover .delete_button {
   display: flex;
-  cursor: pointer;
 }
 
 .search_list {
@@ -107,6 +106,7 @@ body {
   align-items: center;
   flex-grow: 3;
   padding-left: 100px;
+  height: 80px;
 }
 
 .editInput {
@@ -118,21 +118,21 @@ body {
   margin-right: 30px;
 }
 
+.colorpicker_button,
 .edit_button,
 .delete_button{
-  padding-left: 10px;
-}
-
-.confirm_button {
-  display: flex;
+  padding: 5px;
   cursor: pointer;
 }
 
+
+.confirm_button,
 .cancel_button {
   display: flex;
   cursor: pointer;
-  padding-left: 10px;
+  padding: 5px;
 }
+
 .colorPicker {
   position: relative;
   left: 570px;
