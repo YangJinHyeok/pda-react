@@ -5,6 +5,9 @@
 // import { useState } from 'react';
 // import FocusInputButton from "./components/FocusInputButton";
 // import PrimeCalculator from "./components/PrimeCalculator";
+import MyPage from "./components/Practice/5.13/MyPage";
+import ThemeButton from "./components/Practice/5.13/ThemeButton";
+import { ThemeProvider } from "./components/Practice/5.13/ThemeProvider";
 import TodoApp from "./components/TodoList/TodoApp";
 
 function App() {
@@ -23,6 +26,10 @@ function App() {
             {/* <PrimeCalculator text={4} /> */}
             <h1 style={{ textAlign: "center" }}>Todo App</h1>
             <TodoApp />
+            {/* <ThemeProvider>
+              <MyPage/>
+              <ThemeButton/>
+            </ThemeProvider> */}
         </div>
     );
 }

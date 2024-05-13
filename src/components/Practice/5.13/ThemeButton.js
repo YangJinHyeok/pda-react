@@ -1,9 +1,12 @@
-import React from "react";
-import { useTheme } from "./ThemeProvider";
+import React, { useContext } from "react";
+import { ThemeContext, useTheme } from "./ThemeProvider";
 
 export default function ThemeButton() {
-  const { theme, toggleTheme } = useTheme();
+  const {theme, toggleTheme} = useContext(ThemeContext)
+
   return (
-    <button onClick={toggleTheme}>: {theme === "light" ? " " : " "}</button>
+    <button onClick={toggleTheme}>
+      현재 테마 : {theme}
+    </button>
   );
 }

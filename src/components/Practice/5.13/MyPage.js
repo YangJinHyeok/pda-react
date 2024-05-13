@@ -1,18 +1,19 @@
-import React from "react";
-import { useTheme } from "../ThemeProvider";
+import React, { useContext } from "react";
+import { useTheme } from "./ThemeProvider";
+import { ThemeContext } from "./ThemeProvider";
 
 
 export default function MyPage() {
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <div
-      style={
-        theme === "light"
-          ? { backgroundColor: "#e9e9e9" }
-          : { backgroundColor: "black" }
-      }
-    >
-      <div style={{ minHeight: 600 }}>MyPage</div>
+    <div>
+      <div style={{
+        minHeight: 600,
+        backgroundColor : theme === 'light' ? 'e9e9e9' : 'black'
+      }}>
+        MyPage
+      </div>
     </div>
-  );
+  )
 }
