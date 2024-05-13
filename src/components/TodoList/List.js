@@ -35,8 +35,12 @@ const List = ({ id, text, color, onDelete, onUpdate, onColor}) => {
     setShowColorPicker(prevState => !prevState);
   };
 
+  const generateGradient = (color) => {
+    return `linear-gradient(135deg, ${color}, #FFFFFF)`;
+  };
+
   return (
-    <div className={Style.list} style={{ backgroundColor: color }}>
+    <div className={Style.list} style={{ backgroundImage: generateGradient(color) }}>
       {isEditing ? (
         <div className={Style.editMode}>
           <input

@@ -1,6 +1,11 @@
 import React from "react";
 import Style from "../css/TodoApp.module.css";
 
+
+const generateGradient = (color) => {
+  return `linear-gradient(90deg, ${color}, #FFFFFF)`;
+};
+
 const Input = ({
     text,
     handleInputButtonClick,
@@ -12,7 +17,7 @@ const Input = ({
         <div>
             <input
                 type="text"
-                style={{ backgroundColor: selectedColor}}
+                style={{ backgroundImage: generateGradient(selectedColor)}}
                 onChange={handleTextChange}
                 value={text}
                 onKeyDown={(e) => activeEnter(e)}
