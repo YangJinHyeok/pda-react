@@ -5,9 +5,11 @@
 // import { useState } from 'react';
 // import FocusInputButton from "./components/FocusInputButton";
 // import PrimeCalculator from "./components/PrimeCalculator";
-import MyPage from "./components/Practice/5.13/MyPage";
-import ThemeButton from "./components/Practice/5.13/ThemeButton";
-import { ThemeProvider } from "./components/Practice/5.13/ThemeProvider";
+// import MyPage from "./components/Practice/5.13/MyPage";
+// import ThemeButton from "./components/Practice/5.13/ThemeButton";
+// import { ThemeProvider } from "./components/Practice/5.13/ThemeProvider";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import Button from 'react-bootstrap/Button';
 import TodoApp from "./components/TodoList/TodoApp";
 
 function App() {
@@ -24,12 +26,15 @@ function App() {
             {/* <BlinkCompnent text="hi용"/> */}
             {/* <FocusInputButton /> */}
             {/* <PrimeCalculator text={4} /> */}
-            <h1 style={{ textAlign: "center" }}>Todo App</h1>
-            <TodoApp />
             {/* <ThemeProvider>
+              <Button variant="primary" size="lg">기본</Button>
+              <Button variant="danger">danger</Button>
+              <Button variant="info">info</Button>
               <MyPage/>
               <ThemeButton/>
             </ThemeProvider> */}
+            <h1 style={{ textAlign: "center" }}>Todo App</h1>
+            <TodoApp />
         </div>
     );
 }

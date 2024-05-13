@@ -4,7 +4,7 @@ import Input from "./Input";
 import List from "./List";
 import Search from "./Search";
 import Style from "../css/TodoApp.module.css";
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from "uuid";
 
 export default function TodoApp() {
   const colors = [
@@ -50,6 +50,17 @@ export default function TodoApp() {
     setSelectedColor(color);
   };
 
+  const handleListColorChange = (id, color) => {
+    const updatedList = text_list.map((item) => {
+      if (item.id === id) {
+        return { ...item, color: color };
+      }
+      return item;
+    });
+    setText_list(updatedList);
+  };
+  
+
   const handleDeleteItem = (id) => {
     const newList = text_list.filter((item) => item.id !== id);
     setText_list(newList);
@@ -66,14 +77,13 @@ export default function TodoApp() {
   };
 
   const handleInputButtonClick = () => {
-    if(text === ""){
-        alert("내용을 입력해주세요");
-    }
-    else{
-        const newItem = {id: uuidv4(), text: text, color: selectedColor };
-        setText_list([...text_list, newItem]);
-        setText("");
-        setSelectedColor("#FFFFFF");
+    if (text === "") {
+      alert("내용을 입력해주세요");
+    } else {
+      const newItem = { id: uuidv4(), text: text, color: selectedColor };
+      setText_list([...text_list, newItem]);
+      setText("");
+      setSelectedColor("#FFFFFF");
     }
   };
 
@@ -89,10 +99,10 @@ export default function TodoApp() {
   };
 
   return (
-    <div>
+    <div className={Style.parent}>
       <Input
         text={text}
-        setText={setText}   
+        setText={setText}
         handleInputButtonClick={handleInputButtonClick}
         handleTextChange={handleTextChange}
         activeEnter={activeEnter}
@@ -111,6 +121,7 @@ export default function TodoApp() {
                 color={item.color}
                 onDelete={handleDeleteItem}
                 onUpdate={handleUpdateItem}
+                onColor={handleListColorChange}
               />
             ))
           : text_list.map((item, index) => (
@@ -121,6 +132,7 @@ export default function TodoApp() {
                 color={item.color}
                 onDelete={handleDeleteItem}
                 onUpdate={handleUpdateItem}
+                onColor={handleListColorChange}
               />
             ))}
       </div>

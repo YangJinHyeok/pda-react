@@ -1,133 +1,140 @@
 @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 
 @font-face {
-    font-family: 'TTLaundryGothicB';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicR.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "TTLaundryGothicB";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicR.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
+/* .parent {
+  width: 550px;
+  margin: 0px auto;
+} */
 
 body {
-    display: flex;
-    justify-content: center;
-    font-family: 'TTLaundryGothicB', 'NanumSquare';
-    font-size: 20px;
+  display: flex;
+  justify-content: center;
+  font-family: "TTLaundryGothicB", "NanumSquare";
+  font-size: 20px;
 }
-.text_input{
-    position: relative;
-    left: 30px;
-    width: 500px;
-    height: 40px;
-    border-radius: 50px;
-    text-align: center;
-}
-
-.search_input{
-    position: relative;
-    left: 30px;
-    width: 500px;
-    height: 40px;
-    border-radius: 50px;
-    text-align: center;
+.text_input {
+  position: relative;
+  left: 30px;
+  width: 500px;
+  height: 40px;
+  border-radius: 50px;
+  text-align: center;
 }
 
-.color_buttons{
-    display: flex;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
+.search_input {
+  position: relative;
+  left: 30px;
+  width: 500px;
+  height: 40px;
+  border-radius: 50px;
+  text-align: center;
 }
 
-
-.color_button{
-    border-radius: 50%;
-    padding: 20px;
-    margin: 10px;
+.color_buttons {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
-.input_button{
-    position: relative;
-    left: 30px;
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-    border-radius: 20px;
-    background-color: #A2E1DB;
-    cursor: pointer;
+.color_button {
+  border-radius: 50%;
+  padding: 20px;
+  margin: 10px;
 }
 
-
-.list{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    border-radius: 10px;
-    width: 550px;
-    height: 6vh;
-    overflow: hidden; 
-    text-align: center;
-}
-.list p,
-.list input{
-    flex-grow: 3;
+.input_button {
+  position: relative;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: #a2e1db;
+  cursor: pointer;
 }
 
-.list .modify_button,
+.list {
+  margin: 10px;
+  border-radius: 10px;
+  width: 550px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  
+}
+
+.list div,
+.list input {
+  flex-grow: 3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list .edit_button,
 .list .delete_button {
-      display: none;
- }
-  
-  
-.list:hover .modify_button,
-.list:hover .delete_button {
-      display: flex;
-      cursor: pointer;
- }
-  
+  display: none;
+}
 
-.search_list{
-    font-size: 20px;
-    margin: 10px;
-    text-align: center;
-    border-radius: 10px;
-    height: 40px;
+.list:hover .edit_button,
+.list:hover .delete_button {
+  display: flex;
+  cursor: pointer;
+}
+
+.search_list {
+  font-size: 20px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 10px;
+  height: 40px;
 }
 
 .modernMode {
-    display: flex;
-    align-items: center;
-    flex-grow: 3;    
+  display: flex;
+  align-items: center;
+  flex-grow: 3;
 }
-.editMode{
-    display: flex;
-    align-items: center;
-    flex-grow: 3;
-    padding-left: 100px;
-}
-
-.editInput{
-    display: flex;
-    align-items: center;
-    flex-grow: 3;
-    border-radius: 50px;
-    width: 300px;
-    height: 30px;
+.editMode {
+  display: flex;
+  align-items: center;
+  flex-grow: 3;
+  padding-left: 100px;
 }
 
-
-.confirm_button{
-    padding-left: 50px;
-    display: flex;
-    cursor: pointer;
+.editInput {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  width: 300px;
+  height: 30px;
+  margin-right: 30px;
 }
 
-.cancel_button{
-    display: flex;
-    cursor: pointer;
-    padding-left: 10px;
+.edit_button,
+.delete_button{
+  padding-left: 10px;
 }
 
-.delete_button {
-    padding-left: 10px;
+.confirm_button {
+  display: flex;
+  cursor: pointer;
+}
+
+.cancel_button {
+  display: flex;
+  cursor: pointer;
+  padding-left: 10px;
+}
+.colorPicker {
+  position: relative;
+  left: 570px;
+  bottom: 80px;
 }
