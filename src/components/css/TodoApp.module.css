@@ -102,7 +102,9 @@ body {
   padding-left: 100px;
   height: 80px;
 }
-
+.checkbox{
+  position: absolute;
+}
 
 .editInput {
   display: flex;
@@ -121,6 +123,10 @@ body {
   cursor: pointer;
 }
 
+.select{
+  display: flex;
+  justify-content: space-between;
+}
 
 .confirm_button,
 .cancel_button {
@@ -133,4 +139,14 @@ body {
   position: relative;
   left: 570px;
   bottom: 80px;
+}
+
+.select_all{
+  position: relative;
+  left: 15px;
+}
+
+.select_delete{
+  position: relative;
+  right: 20px;
 }

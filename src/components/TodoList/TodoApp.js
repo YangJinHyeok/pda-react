@@ -3,6 +3,7 @@ import Color from "./Color";
 import Input from "./Input";
 import List from "./List";
 import Search from "./Search";
+import Select from "./Select";
 import Style from "../css/TodoApp.module.css";
 import { v4 as uuidv4 } from "uuid";
 
@@ -21,13 +22,15 @@ export default function TodoApp() {
   const [text_list, setText_list] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredTextList, setFilteredTextList] = useState([]);
+  const [isAllChecked, setisAllChecked] = useState(false);
+  const [isChecked, setisChecked] = useState(false);
 
   useEffect(() => {
     const storedTextList = JSON.parse(localStorage.getItem("text_list"));
     if (storedTextList) {
       setText_list(storedTextList);
     }
-  }, []);
+  }, [])                        ;
 
   useEffect(() => {
     localStorage.setItem("text_list", JSON.stringify(text_list));
@@ -39,7 +42,7 @@ export default function TodoApp() {
     filterTextList(searchText);
   };
 
-  const filterTextList = (searchText) => {
+   const filterTextList = (searchText) => {
     const filteredList = text_list.filter((item) =>
       item.text.toLowerCase().includes(searchText.toLowerCase())
     );
@@ -80,7 +83,7 @@ export default function TodoApp() {
     if (text === "") {
       alert("내용을 입력해주세요");
     } else {
-      const newItem = { id: uuidv4(), text: text, color: selectedColor };
+      const newItem = { id: uuidv4(), text: text, color: selectedColor, isChecked: isChecked};
       setText_list([...text_list, newItem]);
       setText("");
       setSelectedColor("#FFFFFF");
@@ -98,6 +101,10 @@ export default function TodoApp() {
     }
   };
 
+  const handleisAllChecked = () => {
+    setisAllChecked(prevState => !prevState);
+  }
+
   return (
     <div className={Style.parent}>
       <Input
@@ -110,7 +117,7 @@ export default function TodoApp() {
       />
       <Search handleSearchTextChange={handleSearchTextChange} />
       <Color colors={colors} handleColorChange={handleColorChange} />
-
+      {/* <Select handleisAllChecked={handleisAllChecked}/> */}
       <div className={Style.all_list}>
         {searchText !== ""
           ? filteredTextList.map((item, index) => (
@@ -122,6 +129,9 @@ export default function TodoApp() {
                 onDelete={handleDeleteItem}
                 onUpdate={handleUpdateItem}
                 onColor={handleListColorChange}
+                isAllChecked={isAllChecked} 
+                isChecked={item.isChecked}
+                setisChecked={setisChecked}
               />
             ))
           : text_list.map((item, index) => (
@@ -133,6 +143,9 @@ export default function TodoApp() {
                 onDelete={handleDeleteItem}
                 onUpdate={handleUpdateItem}
                 onColor={handleListColorChange}
+                isAllChecked={isAllChecked}
+                isChecked={item.isChecked}
+                setisChecked={setisChecked}
               />
             ))}
       </div>
