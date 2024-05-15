@@ -8,14 +8,14 @@
 // import MyPage from "./components/Practice/5.13/MyPage";
 // import ThemeButton from "./components/Practice/5.13/ThemeButton";
 // import { ThemeProvider } from "./components/Practice/5.13/ThemeProvider";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 // import Button from 'react-bootstrap/Button';
 // import TodoApp from "./components/TodoList/TodoApp";
-// import Boardapp from "./components/Board/Boardapp";
-import withUser from '../src/components/Practice/5.14/withUser'
-import UserDisplay from '../src/components/Practice/5.14/UserDisplay';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Boardapp from "./components/Board/Boardapp";
+// import withUser from '../src/components/Practice/5.14/withUser'
+// import UserDisplay from '../src/components/Practice/5.14/UserDisplay';
 
-const UserDisplayWithUser = withUser(UserDisplay);
+// const UserDisplayWithUser = withUser(UserDisplay);
 
 function App() {
     // const [showCount, setShowCount] = useState(true);
@@ -40,8 +40,8 @@ function App() {
             </ThemeProvider> */}
             {/* <h1 style={{ textAlign: "center" }}>Todo App</h1>
             <TodoApp /> */}
-            {/* <Boardapp/> */}
-            <UserDisplayWithUser userId={1} />
+            <Boardapp/>
+            {/* <UserDisplayWithUser userId={1} /> */}
         </div>
     );
 }
